@@ -1,0 +1,13 @@
+#version: "3.9"
+services: #specifies which services to activate on build
+  rtmp:
+    build: . #the period here represents 'current location'. Make sure the docker-compose file and Dockerfile are in the same folder. 
+    ports:
+      - "1935:1935" #binds the listening ports on the container to the same ports on the actual server.
+      - "443:443"
+      - "80:80"
+    container_name: rtmp_server #names the container. Can be set to anything really. 
+    volumes: #This creates a shared folder between the container and the server. It allows you to view these files without having to be inside the container. It also allows you to update the SSL certs quickly.
+      - ./data:/www/hls #this is where the stream segments live
+      - /etc/ssl/certs:/etc/ssl/certs
+      - /etc/ssl/private:/etc/ssl/private
