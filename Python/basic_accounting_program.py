@@ -40,5 +40,5 @@ for i in range(0, creditAccounts):
 # Display results. 
 #------------------------------------------------------------------------------------------------------------------------------------------------
 print("The total for all debits is: $",totalDebits)
-print("The total for all credits is: $",totalCredits)
+print("The total for all credits is: $",totalCredits) #add functionality to check if the accounts balance
 #------------------------------------------------------------------------------------------------------------------------------------------------
